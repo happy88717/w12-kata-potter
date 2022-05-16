@@ -1,105 +1,54 @@
+# Potter
+If you want to try this Kata for yourself or at your dojo meeting, read the problem description and see if the Kata appeals to you. The rest is commentary and helpful clues for if you get stuck solving it. I would recommend trying the Kata for yourself before reading too much of it.
 
+## Problem Description
+Once upon a time there was a series of 5 books about a very English hero called Harry. (At least when this Kata was invented, there were only 5. Since then they have multiplied) Children all over the world thought he was fantastic, and, of course, so did the publisher. So in a gesture of immense generosity to mankind, (and to increase sales) they set up the following pricing model to take advantage of Harry°¶s magical powers.
 
-# W12KataPotter
+One copy of any of the five books costs 8 EUR. If, however, you buy two different books from the series, you get a 5% discount on those two books. If you buy 3 different books, you get a 10% discount. With 4 different books, you get a 20% discount. If you go the whole hog, and buy all 5, you get a huge 25% discount.
 
-This project was generated using [Nx](https://nx.dev).
+Note that if you buy, say, four books, of which 3 are different titles, you get a 10% discount on the 3 that form part of a set, but the fourth book still costs 8 EUR.
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+Potter mania is sweeping the country and parents of teenagers everywhere are queueing up with shopping baskets overflowing with Potter books. Your mission is to write a piece of code to calculate the price of any conceivable shopping basket, giving as big a discount as possible.
 
-üîé **Smart, Fast and Extensible Build System**
+For example, how much does this basket of books cost?
 
-## Quick Start & Documentation
+2 copies of the first book
+2 copies of the second book
+2 copies of the third book
+1 copy of the fourth book
+1 copy of the fifth book
 
-[Nx Documentation](https://nx.dev/angular)
+Answer: 51.20 EUR
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+|  0  |  1   |  2  |  3   |  4  |          ∫‚™k    							          |  ª˘ÆÊ |
+|-----|------|-----|------|-----|-----------------------------------------|--------|
+|     |      |     |      |     |     0 * 8									              |  0.00  |
+|  1  |      |     |      |     |     1 * 8									              |  8.00  |
+|     |  1   |     |      |     |     1 * 8									              |  8.00  |
+|     |      |  1  |      |     |     1 * 8									              |  8.00  |
+|     |      |     |  1   |     |     1 * 8									              |  8.00  |
+|     |      |     |      |  1  |     1 * 8									              |  8.00  |
+|  1  |  1   |     |      |     |     2 * 8 * 0.95							          |  15.20 |
+|  1  |  1   |  1  |      |     |     3 * 8 * 0.9							            |  21.60 |
+|  1  |  1   |  1  |  1   |     |     4 * 8 * 0.8							            |  25.60 |
+|  1  |  1   |  1  |  1   |  1  |     5 * 8 * 0.75							          |  30.00 |
+|  2  |      |     |      |     |     2 * 8									              |  16.00 |
+|  2  |  1   |     |      |     |     2 * 8 * 0.95 + 1 * 8					      |  23.20 |
+|  2  |  1   |  1  |      |     |     3 * 8 * 0.90 + 1 * 8					      |  29.60 |
+|  2  |  2   |  2  |  1   |  1  | 4 * 8 * 0.8 + 4 * 8 * 0.8					      |  51.20 |
+|  5  |  5   |  4  |  5   |  4  | 3 * (5 * 8 * 0.75) + 2 * (4 * 8 * 0.8)	| 141.20 |
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+## Solution Description
+Use TypeScript to solve it
+1.≠∫•˝´ÿ•ﬂ§@≠”§G∫˚∞}¶Cbooks°A´¨∫A¨∞boolean°A©“•H¶p™G¨∞2-1-1-0-0≥oµß¥˙∏Í°A®‰books¿≥™¯¶®≥oºÀ
+[[true,true,true,false,false]   
+[true,false,false,false,false]]
+®‰∑N∏q•N™Ì≤ƒ§@µß¿x¶s≠q≥Ê¶≥ 0°B1°B2 §T•ªÆ—
+         ≤ƒ§Gµß¿x¶s≠q≥Ê¶≥ 0 ≥o•ªÆ—
 
-## Adding capabilities to your workspace
+•t•~´ÿ•ﬂ§@≠”∞}¶Cbooksdiffsize ¿x¶s≠q≥Ê§§¶≥¥X•ª§£¶P™∫Æ—°A•H2-1-1-0-0≥oµß¥˙∏Í°A•—§W≠z§w™æbooks™¯´ÁºÀ°A¶]¶π•i•H™æπD®‰booksdiffsize¨∞
+[3,1]
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+2.¥y≠z¶p¶Û≠p∫‚
+•—§p≥v®B±N≠q≥Ê•[§J¿x¶s≠q≥Ê§§°A¶”≥]©winsert_index®√≠p∫‚¶p™G•[¶b≠˛µß¿x¶s≠q≥Ê§§∑|±o®Ï∏˚§p™∫ª˘ÆÊ°A§@∂}©linsert_index ¨∞-1°A¶p™GπMæ˙ßπbooks´·µo≤{•[§£∂i•h°A´h∑sºW§@µß¿x¶s≠q≥Ê•[∂i•h°A≥Ã´·ßY•i±o•Xµ™Æ◊
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@w12-kata-potter/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ‚òÅ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx‚Äôs advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
