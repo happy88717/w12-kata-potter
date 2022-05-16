@@ -18,9 +18,9 @@ For example, how much does this basket of books cost?
 1 copy of the fourth book
 1 copy of the fifth book
 
-Answer: 51.20 EUR
+Answer: 51.20
 
-|  0  |  1   |  2  |  3   |  4  |          算法    							          |  價格 |
+|  0  |  1   |  2  |  3   |  4  |          算法    							          |  價格  |
 |-----|------|-----|------|-----|-----------------------------------------|--------|
 |     |      |     |      |     |     0 * 8									              |  0.00  |
 |  1  |      |     |      |     |     1 * 8									              |  8.00  |
@@ -41,6 +41,7 @@ Answer: 51.20 EUR
 ## Solution Description
 Use TypeScript to solve it
 1.首先建立一個二維陣列books，型態為boolean，所以如果為2-1-1-0-0這筆測資，其books應長成這樣
+
 [[true,true,true,false,false]   
 [true,false,false,false,false]]
 其意義代表第一筆儲存訂單有 0、1、2 三本書
@@ -50,5 +51,6 @@ Use TypeScript to solve it
 [3,1]
 
 2.描述如何計算
+
 由小逐步將訂單加入儲存訂單中，而設定insert_index並計算如果加在哪筆儲存訂單中會得到較小的價格，一開始insert_index 為-1，如果遍歷完books後發現加不進去，則新增一筆儲存訂單加進去，最後即可得出答案
 
